@@ -18,4 +18,4 @@ while not not zeros:
             answers[val] = code
             zeros.remove(val)
 
-print('\n'.join('{} produce the first hash with {} leading zeros.'.format(val, key) for key, val in answers.items()))
+print('\n'.join('{} produces the first hash with {} leading zeros.'.format(val, key) for key, val in answers.items()))
