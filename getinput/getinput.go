@@ -29,7 +29,14 @@ func Get(day int, sessionKey string) ([]string, error) {
 		return nil, err
 	}
 
-	return strings.Split(string(contents), "\n"), nil
+	ret := strings.Split(string(contents), "\n")
+
+	if len(ret[len(ret)-1]) == 0 {
+		// Last one is empty, discard
+		ret = ret[:len(ret)-1]
+	}
+
+	return ret, nil
 }
 
 func MustGet(day int, sessionKey string) []string {
