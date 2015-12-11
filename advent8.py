@@ -22,8 +22,8 @@ class Graph:
             self.edges[start_node][end_node] = weight
 
     def all_lengths(self):
-        return [sum([G.edges[path[i]][path[i+1]] for i in xrange(len(path) - 1)])
-                for path in itertools.permutations(G.nodes)]
+        return [sum([self.edges[path[i]][path[i+1]] for i in xrange(len(path) - 1)])
+                for path in itertools.permutations(self.nodes)]
 
 G = Graph()
 for edge in edges:
