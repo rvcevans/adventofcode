@@ -26,7 +26,7 @@ class Graph:
                 for path in itertools.permutations(G.nodes)]
 
 G = Graph()
-for edge in edges.split('\n'):
+for edge in edges:
     values = edge.split(' ')
     G.add_edge(values[0], values[2], int(values[4]))
 
