@@ -10,11 +10,9 @@ def entanglement(boxes):
 
 
 def arrangements(boxes, target):
-    found = False
-    for i in xrange(1, len(boxes) - 1):
-        if found:
-            return
-
+    i, found = 0, False
+    while not found:
+        i += 1
         for c in itertools.combinations(boxes, i):
             if sum(c) == target:
                 found = True
@@ -22,4 +20,3 @@ def arrangements(boxes, target):
 
 print 'Part 1. %s' % min(entanglement(c) for c in arrangements(boxes, sum(boxes) / 3))
 print 'Part 2. %s' % min(entanglement(c) for c in arrangements(boxes, sum(boxes) / 4))
-
