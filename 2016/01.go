@@ -53,7 +53,7 @@ type taxi struct {
 }
 
 func newTaxi() *taxi {
-	return &taxi{xDirection: 0, yDirection: 1, Location: location{}}
+	return &taxi{xDirection: 0, yDirection: 1}
 }
 
 func (t *taxi) move(blocks int) {
