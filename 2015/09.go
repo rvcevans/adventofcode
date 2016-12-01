@@ -1,17 +1,18 @@
 package main
 
 import (
-	"github.com/ifross89/adventofcode/getinput"
-	"os"
-	"strings"
-	"strconv"
 	"fmt"
+	"os"
+	"strconv"
+	"strings"
+
 	"github.com/fighterlyt/permutation"
+	"github.com/rvcevans/adventofcode/getinput"
 )
 
 func calcTotal(cities []string, distances map[string]map[string]int) int {
 	total := 0
-	for i:=0; i<len(cities)-1; i++ {
+	for i := 0; i < len(cities)-1; i++ {
 		cityA := cities[i]
 		cityB := cities[i+1]
 		total += distances[cityA][cityB]
@@ -21,7 +22,7 @@ func calcTotal(cities []string, distances map[string]map[string]int) int {
 
 func main() {
 	distances := make(map[string]map[string]int)
-	for _, line := range getinput.MustGet(9, os.Getenv("ADVENT_SESSION")) {
+	for _, line := range getinput.MustGet(2015, 9, os.Getenv("ADVENT_SESSION")) {
 		tokens := strings.Split(line, " ")
 		cityA := tokens[0]
 		cityB := tokens[2]

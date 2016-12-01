@@ -1,15 +1,18 @@
 package getinput
 
 import (
+	"fmt"
 	"io/ioutil"
 	"net/http"
 	"strings"
-	"fmt"
+	"log"
 )
 
-func Get(day int, sessionKey string) ([]string, error) {
+func Get(year int, day int, sessionKey string) ([]string, error) {
 	client := &http.Client{}
-	req, err := http.NewRequest("GET", fmt.Sprintf("http://adventofcode.com/day/%d/input", day), nil)
+	url := fmt.Sprintf("http://adventofcode.com/%d/day/%d/input", year, day)
+	log.Printf("Fetching input: %s", url)
+	req, err := http.NewRequest("GET", url, nil)
 
 	if err != nil {
 		return nil, err
@@ -39,8 +42,8 @@ func Get(day int, sessionKey string) ([]string, error) {
 	return ret, nil
 }
 
-func MustGet(day int, sessionKey string) []string {
-	in, err := Get(day, sessionKey)
+func MustGet(year int, day int, sessionKey string) []string {
+	in, err := Get(year, day, sessionKey)
 	if err != nil {
 		panic(err)
 	}
