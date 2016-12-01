@@ -15,8 +15,8 @@ func main() {
 	moves := strings.Split(input, ", ")
 
 	t := newTaxi()
-	visited := make(map[location]struct{})
-	var secondSolution location
+	visited := make(map[vector]struct{})
+	var secondSolution vector
 	secondFound := false
 	for _, m := range moves {
 		direction := string(m[0])
@@ -41,24 +41,23 @@ func main() {
 	fmt.Printf("2nd solution: %v blocks away\n", secondSolution.away())
 }
 
-type location struct {
+type vector struct {
 	x int
 	y int
 }
 
 type taxi struct {
-	Location   location
-	xDirection int
-	yDirection int
+	Location  vector
+	direction vector
 }
 
 func newTaxi() *taxi {
-	return &taxi{xDirection: 0, yDirection: 1}
+	return &taxi{direction: vector{0, 1}}
 }
 
 func (t *taxi) move(blocks int) {
-	t.Location.x += t.xDirection * blocks
-	t.Location.y += t.yDirection * blocks
+	t.Location.x += t.direction.x * blocks
+	t.Location.y += t.direction.y * blocks
 }
 
 func (t *taxi) turn(direction string) {
@@ -70,14 +69,14 @@ func (t *taxi) turn(direction string) {
 }
 
 func (t *taxi) right() {
-	t.xDirection, t.yDirection = t.yDirection, -t.xDirection
+	t.direction.x, t.direction.y = t.direction.y, -t.direction.x
 }
 
 func (t *taxi) left() {
-	t.xDirection, t.yDirection = -t.yDirection, t.xDirection
+	t.direction.x, t.direction.y = -t.direction.y, t.direction.x
 }
 
-func (l *location) away() int {
+func (l *vector) away() int {
 	return abs(l.x) + abs(l.y)
 }
 
