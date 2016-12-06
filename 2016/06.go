@@ -10,14 +10,12 @@ import (
 func main() {
 	input := getinput.MustGet(2016, 6, os.Getenv("ADVENT_SESSION"))
 
+	columns := make([]map[rune]int, len(input[0]))
+	for i := range columns {
+		columns[i] = make(map[rune]int)
+	}
 
-	columns := make([]map[rune]int, 0)
-	for j, row := range input {
-		if j == 0 {
-			for range row {
-				columns = append(columns, make(map[rune]int))
-			}
-		}
+	for _, row := range input {
 		for i, r := range row {
 			columns[i][r] ++
 		}
