@@ -3,44 +3,16 @@ package main
 import (
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/rvcevans/adventofcode/getinput"
 )
 
 func main() {
 	inputs := getinput.MustGet(2016, 2, os.Getenv("ADVENT_SESSION"))
-
 	keypads := map[int]*keypad{
-		1: {
-			buttons: map[vector]rune{
-				vector{-1, 1}:  '1',
-				vector{-1, 0}:  '4',
-				vector{-1, -1}: '7',
-				vector{0, 1}:   '2',
-				vector{0, 0}:   '5',
-				vector{0, -1}:  '8',
-				vector{1, 1}:   '3',
-				vector{1, 0}:   '6',
-				vector{1, -1}:  '9',
-			},
-		},
-		2: {
-			buttons: map[vector]rune{
-				vector{0, 0}:  '5',
-				vector{1, 1}:  '2',
-				vector{1, 0}:  '6',
-				vector{1, -1}: 'A',
-				vector{2, 2}:  '1',
-				vector{2, 1}:  '3',
-				vector{2, 0}:  '7',
-				vector{2, -1}: 'B',
-				vector{2, -2}: 'D',
-				vector{3, 1}:  '4',
-				vector{3, 0}:  '8',
-				vector{3, -1}: 'C',
-				vector{4, 0}:  '9',
-			},
-		},
+		1: newKeypad("123,456,789", '5'),
+		2: newKeypad("  1  , 234 ,56789, ABC ,  D  ", '5'),
 	}
 
 	for i, k := range keypads {
@@ -63,6 +35,27 @@ type vector struct {
 type keypad struct {
 	buttons  map[vector]rune
 	location vector
+}
+
+func newKeypad(layout string, initialButton rune) *keypad {
+	buttons := make(map[vector]rune)
+	location := vector{}
+	for j, row := range strings.Split(layout, ",") {
+		for i, button := range row {
+			if button == ' ' {
+				continue
+			}
+			if button == initialButton {
+				location = vector{x: i, y: -j}
+			}
+			buttons[vector{x: i, y: -j}] = button
+		}
+	}
+
+	return &keypad{
+		buttons:  buttons,
+		location: location,
+	}
 }
 
 func (k *keypad) value() rune {

@@ -52,7 +52,7 @@ type taxi struct {
 }
 
 func newTaxi() *taxi {
-	return &taxi{direction: vector{0, 1}}
+	return &taxi{direction: vector{y: 1}}
 }
 
 func (t *taxi) move(blocks int) {
