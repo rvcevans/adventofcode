@@ -1,14 +1,14 @@
 package main
 
 import (
-	"fmt"
-	"os"
-
-	"github.com/rvcevans/adventofcode/getinput"
 	"crypto/md5"
+	"fmt"
+	"log"
+	"os"
 	"strconv"
 	"strings"
-	"xtx/core/common/log"
+
+	"github.com/rvcevans/adventofcode/getinput"
 )
 
 func main() {
@@ -36,7 +36,7 @@ func main() {
 			}
 		}
 
-		i ++
+		i++
 	}
 
 	fmt.Printf("Solution 1: %v\n", string(solution1))
