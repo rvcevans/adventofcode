@@ -10,16 +10,24 @@ import (
 )
 
 const (
-	mulA = 16807
-	mulB = 48271
-	div  = 1<<31 - 1
+	mulA        = 16807
+	mulB        = 48271
+	div         = 1<<31 - 1
+	pairCompare = 5000000
 )
 
 func main() {
 	input := getinput.MustGet(2017, 15, os.Getenv("ADVENT_SESSION"))
 	a, b := generator(input[0]), generator(input[1])
 
-	achan, bchan := make(chan int, 50000000), make(chan int, 50000000)
+	achan, bchan := make(chan int, pairCompare), make(chan int, pairCompare)
+	maybeSend := func(c chan int, v int) {
+		select {
+		case c <- v:
+		default:
+		}
+	}
+
 	pairs := 0
 	total1, total2 := 0, 0
 	go func() {
@@ -32,24 +40,18 @@ func main() {
 	}()
 
 	i := 0
-	for pairs < 5000000 {
-		i ++
+	for pairs < pairCompare {
+		i++
 		a = a * mulA % div
 		b = b * mulB % div
 		if i < 40000000 && bitEqual(a, b) {
 			total1++
 		}
 		if a%4 == 0 {
-			select {
-			case achan <- a:
-			default:
-			}
+			maybeSend(achan, a)
 		}
 		if b%8 == 0 {
-			select {
-			case bchan <- b:
-			default:
-			}
+			maybeSend(bchan, b)
 		}
 	}
 
