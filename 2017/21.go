@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/rvcevans/adventofcode/getinput"
 	"os"
-	"fmt"21
+	"fmt"
 	"log"
 	"strings"
 )

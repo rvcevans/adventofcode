@@ -67,6 +67,7 @@ func Get(year int, day int, sessionKey string) ([]string, error) {
 		}
 
 	} else {
+		log.Printf("Reading input from local cache: %v", cacheFilename)
 		var err error
 		b, err = ioutil.ReadFile(cacheFilename)
 		if err != nil {
