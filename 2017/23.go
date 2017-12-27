@@ -16,7 +16,7 @@ func main() {
 		instructions = append(instructions, strings.Split(i, " "))
 	}
 
-	a := newAssembly(make(map[string]int), instructions, nil, nil, 0)
+	a := newAssembly(make(map[string]int), instructions, nil, nil)
 	for a.Run() {
 	}
 

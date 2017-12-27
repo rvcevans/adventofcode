@@ -30,10 +30,9 @@ type assembly struct {
 	cmdCount             map[string]int
 }
 
-func newAssembly(registry map[string]int, instructions [][]string, in, out chan int, position int) *assembly {
+func newAssembly(registry map[string]int, instructions [][]string, in, out chan int) *assembly {
 	return &assembly{
 		instructions: instructions,
-		position:     position,
 		in:           in,
 		out:          out,
 		registry:     registry,

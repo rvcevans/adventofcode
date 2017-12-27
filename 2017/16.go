@@ -56,7 +56,7 @@ func main() {
 	fmt.Println(str(dance(start, totalDances % cycle)))
 }
 
-type move = func([]rune) []rune
+type move func([]rune) []rune
 
 func spin(size int) move {
 	return func(s []rune) []rune {
@@ -85,14 +85,6 @@ func index(s []rune, r rune) int {
 	}
 	log.Fatalf("Failed to index %s in slice %v", r, s)
 	return -1
-}
-
-func mustInt(s string) int {
-	i, err := strconv.Atoi(s)
-	if err != nil {
-		log.Fatalf("Failed to convert %v to int: %v", s, err)
-	}
-	return i
 }
 
 func str(s []rune) string {
