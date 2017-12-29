@@ -170,6 +170,14 @@ func mustInt(s string) int {
 	return i
 }
 
+func mustBool(s string) bool {
+	b, err := strconv.ParseBool(s)
+	if err != nil {
+		log.Fatalf("Failed to convert %v to bool: %v", s, err)
+	}
+	return b
+}
+
 // Returns false if no integer solutions exist
 func solveQuadraticPos(a, b, c int) (int, int) {
 	if a == 0 {
