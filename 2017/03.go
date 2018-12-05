@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/rvcevans/adventofcode/getinput"
 	"log"
-	"os"
 	"strconv"
 )
 

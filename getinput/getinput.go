@@ -14,28 +14,33 @@ import (
 )
 
 func get(year, day int, sessionKey string) ([]byte, error) {
-	client := &http.Client{}
-	url := fmt.Sprintf("http://adventofcode.com/%d/day/%d/input", year, day)
+	if sessionKey == "" {
+		return nil, fmt.Errorf("No session provided")
+	}
+
+	url := fmt.Sprintf("https://adventofcode.com/%d/day/%d/input", year, day)
 	log.Printf("Fetching input: %s", url)
 	req, err := http.NewRequest("GET", url, nil)
-
 	if err != nil {
 		return nil, err
 	}
 
 	req.AddCookie(&http.Cookie{Name: "session", Value: sessionKey})
-
+	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
 		return nil, err
 	}
-
 	defer resp.Body.Close()
 
 	contents, err := ioutil.ReadAll(resp.Body)
 	if err != nil {
 		return nil, err
 	}
+	if resp.StatusCode == http.StatusBadRequest {
+		return nil, fmt.Errorf("Bad request: %s", contents)
+	}
+
 	return contents, nil
 }
 
