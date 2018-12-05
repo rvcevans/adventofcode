@@ -11,7 +11,7 @@ import (
 func main() {
 	book := map[int]map[int]square{2: make(map[int]square), 3: make(map[int]square)}
 
-	for _, rule := range getinput.MustGet(2017, 21, os.Getenv("ADVENT_SESSION")) {
+	for _, rule := range getinput.MustGet(2017, 21) {
 		s := strings.Split(rule, " => ")
 		from, to := newSquare(s[0]), newSquare(s[1])
 

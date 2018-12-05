@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 	"strconv"
 
 	"github.com/rvcevans/adventofcode/getinput"
@@ -11,7 +10,7 @@ import (
 func main() {
 	diffA := 0
 	diffB := 0
-	for _, literalStr := range getinput.MustGet(2015, 8, os.Getenv("ADVENT_SESSION")) {
+	for _, literalStr := range getinput.MustGet(2015, 8) {
 		quotedStr := strconv.Quote(literalStr)
 		memoryStr, _ := strconv.Unquote(literalStr)
 		diffA += len(literalStr) - len(memoryStr)

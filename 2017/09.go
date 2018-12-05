@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/rvcevans/adventofcode/getinput"
-	"os"
 )
 
 var characters = map[rune]struct{}{
@@ -14,7 +13,7 @@ var characters = map[rune]struct{}{
 }
 
 func main() {
-	input := getinput.MustGet(2017, 9, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2017, 9)
 
 	cleaned, removed := removeCharacters(input[0])
 	fmt.Println(score(cleaned))

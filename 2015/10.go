@@ -3,8 +3,6 @@ package main
 import (
 	"bytes"
 	"fmt"
-	"os"
-
 	"github.com/rvcevans/adventofcode/getinput"
 )
 
@@ -30,7 +28,7 @@ func sayNumbers(in []byte) []byte {
 
 func main() {
 
-	input := []byte(getinput.MustGet(2015, 10, os.Getenv("ADVENT_SESSION"))[0])
+	input := []byte(getinput.MustGet(2015, 10)[0])
 	fmt.Printf("Input: %s\n", input)
 
 	for i := 0; i < 50; i++ {

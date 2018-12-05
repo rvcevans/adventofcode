@@ -4,12 +4,11 @@ import (
 	"fmt"
 	"github.com/rvcevans/adventofcode/getinput"
 	"math"
-	"os"
 	"strings"
 )
 
 func main() {
-	input := getinput.MustGet(2017, 23, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2017, 23)
 
 	var instructions [][]string
 	for _, i := range input {

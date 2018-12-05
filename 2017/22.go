@@ -14,7 +14,7 @@ const (
 )
 
 func main() {
-	input := getinput.MustGet(2017, 22, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2017, 22)
 	//input = []string{"..#","#..","..."}
 
 	l := len(input)

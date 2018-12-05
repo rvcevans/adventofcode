@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-	"os"
 	"strconv"
 	"strings"
 
@@ -11,7 +10,7 @@ import (
 )
 
 func main() {
-	input := getinput.MustGet(2016, 3, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2016, 3)
 
 	rows := make([][]int, 0, len(input))
 	for _, i := range input {

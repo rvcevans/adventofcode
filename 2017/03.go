@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	input, err := strconv.Atoi(getinput.MustGet(2017, 3, os.Getenv("ADVENT_SESSION"))[0])
+	input, err := strconv.Atoi(getinput.MustGet(2017, 3)[0])
 	if err != nil {
 		log.Fatalf("Failed to convert input to integer: %v", err.Error())
 	}

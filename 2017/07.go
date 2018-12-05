@@ -17,7 +17,7 @@ var (
 )
 
 func main() {
-	input := getinput.MustGet(2017, 7, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2017, 7)
 
 	weights := make(map[string]int)
 	above := make(map[string][]string)

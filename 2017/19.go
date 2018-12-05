@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	input := getinput.MustGet(2017, 19, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2017, 19)
 
 	var start int
 	for i, r := range input[0] {

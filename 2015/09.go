@@ -22,7 +22,7 @@ func calcTotal(cities []string, distances map[string]map[string]int) int {
 
 func main() {
 	distances := make(map[string]map[string]int)
-	for _, line := range getinput.MustGet(2015, 9, os.Getenv("ADVENT_SESSION")) {
+	for _, line := range getinput.MustGet(2015, 9) {
 		tokens := strings.Split(line, " ")
 		cityA := tokens[0]
 		cityB := tokens[2]

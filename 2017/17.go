@@ -3,13 +3,10 @@ package main
 import (
 	"fmt"
 	"github.com/rvcevans/adventofcode/getinput"
-	"os"
-	"strconv"
-	"log"
 )
 
 func main() {
-	input := mustInt(getinput.MustGet(2017, 17, os.Getenv("ADVENT_SESSION"))[0])
+	input := mustInt(getinput.MustGet(2017, 17)[0])
 
 	s := []int{0}
 	pos := 0

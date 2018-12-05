@@ -4,12 +4,11 @@ import (
 	"fmt"
 	"github.com/rvcevans/adventofcode/getinput"
 	"log"
-	"os"
 	"strconv"
 )
 
 func main() {
-	input := getinput.MustGet(2016, 9, os.Getenv("ADVENT_SESSION"))[0]
+	input := getinput.MustGet(2016, 9)[0]
 
 	fmt.Printf("Solution 1: %v\n", decompress(input, false))
 	fmt.Printf("Solution 2: %v\n", decompress(input, true))

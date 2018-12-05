@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	input := getinput.MustGet(2016, 5, os.Getenv("ADVENT_SESSION"))[0]
+	input := getinput.MustGet(2016, 5)[0]
 
 	i := 0
 	solution1 := ""

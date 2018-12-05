@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	input := getinput.MustGet(2017, 24, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2017, 24)
 
 	var components []*component
 	for _, c := range input {

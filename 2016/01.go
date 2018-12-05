@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	input := getinput.MustGet(2016, 1, os.Getenv("ADVENT_SESSION"))[0]
+	input := getinput.MustGet(2016, 1)[0]
 	moves := strings.Split(input, ", ")
 
 	t := newTaxi()
