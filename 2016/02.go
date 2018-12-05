@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	inputs := getinput.MustGet(2016, 2, os.Getenv("ADVENT_SESSION"))
+	inputs := getinput.MustGet(2016, 2, os)
 	keypads := map[int]*keypad{
 		1: newKeypad("123,456,789", '5'),
 		2: newKeypad("  1  , 234 ,56789, ABC ,  D  ", '5'),

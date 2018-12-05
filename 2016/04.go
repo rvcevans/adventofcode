@@ -11,7 +11,7 @@ import (
 )
 
 func main() {
-	input := getinput.MustGet(2016, 4, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2016, 4)
 
 	sectorSum := 0
 	var sector2 int

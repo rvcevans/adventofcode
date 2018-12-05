@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	input := getinput.MustGet(2017, 20, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2017, 20)
 
 	var particles []*particle
 	minAcceleration := -1

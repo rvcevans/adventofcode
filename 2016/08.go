@@ -5,11 +5,10 @@ import (
 	"regexp"
 	"strconv"
 	"github.com/rvcevans/adventofcode/getinput"
-	"os"
 )
 
 func main() {
-	input := getinput.MustGet(2016, 8, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2016, 8)
 
 	s := newScreen()
 	for _, i := range input {

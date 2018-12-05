@@ -3,13 +3,12 @@ package main
 import (
 	"fmt"
 	"github.com/rvcevans/adventofcode/getinput"
-	"os"
 	"regexp"
 	"strings"
 )
 
 func main() {
-	start, diagnostic, blueprint := parseBlueprint(getinput.MustGet(2017, 25, os.Getenv("ADVENT_SESSION")))
+	start, diagnostic, blueprint := parseBlueprint(getinput.MustGet(2017, 25))
 
 	m := newMachine(start)
 	for diagnostic > 0 {

@@ -2,13 +2,11 @@ package main
 
 import (
 	"fmt"
-	"os"
-
 	"github.com/rvcevans/adventofcode/getinput"
 )
 
 func main() {
-	input := getinput.MustGet(2016, 6, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2016, 6)
 
 	columns := make([]map[rune]int, len(input[0]))
 	for i := range columns {

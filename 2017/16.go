@@ -4,15 +4,13 @@ import (
 	"fmt"
 	"github.com/rvcevans/adventofcode/getinput"
 	"log"
-	"os"
-	"strconv"
 	"strings"
 )
 
 const totalDances = 1000000000
 
 func main() {
-	input := getinput.MustGet(2017, 16, os.Getenv("ADVENT_SESSION"))[0]
+	input := getinput.MustGet(2017, 16)[0]
 
 	start := make([]rune, 16)
 	for i, r := 0, 'a'; i < 16; i, r = i+1, r+1 {

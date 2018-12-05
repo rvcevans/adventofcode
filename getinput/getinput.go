@@ -13,7 +13,7 @@ import (
 	"strings"
 )
 
-func get(year int, day int, sessionKey string) ([]byte, error) {
+func get(year, day int, sessionKey string) ([]byte, error) {
 	client := &http.Client{}
 	url := fmt.Sprintf("http://adventofcode.com/%d/day/%d/input", year, day)
 	log.Printf("Fetching input: %s", url)
@@ -39,7 +39,7 @@ func get(year int, day int, sessionKey string) ([]byte, error) {
 	return contents, nil
 }
 
-func Get(year int, day int, sessionKey string) ([]string, error) {
+func Get(year, day int, sessionKey string) ([]string, error) {
 	u, err := user.Current()
 	if err != nil {
 		return nil, fmt.Errorf("could not get current user: %v", err)
@@ -85,8 +85,8 @@ func Get(year int, day int, sessionKey string) ([]string, error) {
 	return ret, nil
 }
 
-func MustGet(year int, day int, sessionKey string) []string {
-	in, err := Get(year, day, sessionKey)
+func MustGet(year, day int) []string {
+	in, err := Get(year, day, os.Getenv("ADVENT_SESSION"))
 	if err != nil {
 		panic(err)
 	}

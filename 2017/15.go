@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/rvcevans/adventofcode/getinput"
 	"log"
-	"os"
 	"strconv"
 	"strings"
 )
@@ -17,7 +16,7 @@ const (
 )
 
 func main() {
-	input := getinput.MustGet(2017, 15, os.Getenv("ADVENT_SESSION"))
+	input := getinput.MustGet(2017, 15)
 	a, b := generator(input[0]), generator(input[1])
 
 	achan, bchan := make(chan int, pairCompare), make(chan int, pairCompare)
