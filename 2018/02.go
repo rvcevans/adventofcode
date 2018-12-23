@@ -24,7 +24,7 @@ func main() {
 	}
 
 	log.Printf("Solution 1: %d", repeatCount[2]*repeatCount[3])
-	
+
 	for i := 0; i < len(ids[0]); i ++ {
 		seen := map[string]struct{}{}
 		for _, id := range ids {
